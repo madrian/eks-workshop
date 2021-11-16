@@ -27,6 +27,11 @@ eksctl create iamserviceaccount \
   --approve
 ```
 
+Add the service account name to the base deployment.
+```
+kubectl apply -f 1_base_application/base_app_irsa.yaml
+```
+
 Now that's sorted, you can start the proxies. We have enabled automatic sidecar injection on the `prod` namespace, but this was done after initial pod creation. Currently, your pods each have one container running.
 
 ```bash
